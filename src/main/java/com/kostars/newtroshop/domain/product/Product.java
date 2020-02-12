@@ -3,6 +3,7 @@ package com.kostars.newtroshop.domain.product;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.kostars.newtroshop.domain.order.OrderItems;
 import com.kostars.newtroshop.domain.product.category.Category;
 import lombok.*;
 import org.hibernate.annotations.DynamicInsert;
@@ -20,7 +21,7 @@ import java.util.List;
 @Entity
 @DynamicInsert
 @Builder
-@ToString(exclude = {"categories"})
+@ToString(exclude = {"categories","orderItemsList"})
 public class Product {
 
     @Id
@@ -47,5 +48,9 @@ public class Product {
     , inverseJoinColumns = @JoinColumn(name = "categoryId"))
     @JsonIgnore
     private List<Category> categories;
+
+    @OneToMany(fetch = FetchType.LAZY,mappedBy = "product")
+    @JsonIgnore
+    private List<OrderItems> orderItemsList;
 
 }

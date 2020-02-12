@@ -17,7 +17,7 @@ import java.util.List;
 @Builder
 @Accessors(chain = true)
 @EntityListeners(AuditingEntityListener.class)
-@Table(name = "order" , schema = "newtrowave")
+@Table(name = "ordered")
 @ToString(exclude = {"orderItemsList","user","orderStatus"})
 public class Order {
 

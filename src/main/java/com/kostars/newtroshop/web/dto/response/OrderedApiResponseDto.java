@@ -20,8 +20,8 @@ public class OrderApiResponseDto {
 
     private LocalDateTime createdAt;
 
-    private Long userId;
+    private Long Id;
 
-    private Long orderStatusOrderStatusId;
+    private Long OrderStatusId;
 
 }

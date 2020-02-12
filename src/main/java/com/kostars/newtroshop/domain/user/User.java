@@ -1,14 +1,12 @@
 package com.kostars.newtroshop.domain.user;
 
-import com.kostars.newtroshop.domain.order.Order;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.kostars.newtroshop.domain.order.Ordered;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-<<<<<<< Updated upstream
 import lombok.experimental.Accessors;
-=======
 import lombok.ToString;
->>>>>>> Stashed changes
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -22,12 +20,8 @@ import java.util.List;
 @NoArgsConstructor
 @Entity
 @EntityListeners(AuditingEntityListener.class)
-<<<<<<< Updated upstream
 @Accessors(chain = true)
-=======
-@ToString(exclude = {"orderList"})
-@Table(name = "user" , schema = "newtrowave")
->>>>>>> Stashed changes
+@ToString(exclude = {"orderedList"})
 public class User {
 
     @Id
@@ -58,7 +52,8 @@ public class User {
     private LocalDateTime updatedAt;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
-    private List<Order> orderList = new ArrayList<Order>();
+    @JsonIgnore
+    private List<Ordered> orderedList = new ArrayList<Ordered>();
 
     @Builder
     public User(String name, String email, String picture, Role role, String phoneNumber, LocalDateTime registeredAt) {

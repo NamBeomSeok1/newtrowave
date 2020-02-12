@@ -20,15 +20,15 @@ let k = productSubmitBtn.addEventListener("click", function () {
     console.log(data);
 
     fetch("/api/product", {
-        method: 'post',
-        headers: {
-            'Content-Type': "application/json"
-        },
-        body: JSON.stringify(data)
-    })
-        .then(response => {
-            console.log(response);
-        }).catch(err => {
+    method: 'post',
+    headers: {
+        'Content-Type': "application/json"
+    },
+    body: JSON.stringify(data)
+})
+    .then(response => {
+        console.log(response);
+    }).catch(err => {
         console.log(err);
     })
 });
