@@ -30,6 +30,12 @@ public class IndexController {
 
         return "loginpage";
     }
+    @GetMapping("/order")
+    public String order(){
+
+        return "order";
+    }
+
 
 
 }
