@@ -1,17 +1,19 @@
 package com.kostars.newtroshop.web.dto.response;
 
+import com.kostars.newtroshop.domain.order.OrderItems;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class OrderApiResponseDto {
+public class OrderedApiResponseDto {
 
 
     private Long orderId;
@@ -22,6 +24,9 @@ public class OrderApiResponseDto {
 
     private Long Id;
 
-    private Long OrderStatusId;
+    private Long orderStatusId;
+
+    private List<OrderItems> orderItemsList;
 
 }
+

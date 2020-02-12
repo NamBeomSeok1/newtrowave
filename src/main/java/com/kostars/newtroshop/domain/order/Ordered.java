@@ -3,6 +3,7 @@ package com.kostars.newtroshop.domain.order;
 import com.kostars.newtroshop.domain.user.User;
 import lombok.*;
 import lombok.experimental.Accessors;
+import net.minidev.json.annotate.JsonIgnore;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
@@ -17,9 +18,8 @@ import java.util.List;
 @Builder
 @Accessors(chain = true)
 @EntityListeners(AuditingEntityListener.class)
-@Table(name = "ordered")
 @ToString(exclude = {"orderItemsList","user","orderStatus"})
-public class Order {
+public class Ordered {
 
 
     @Id
@@ -41,7 +41,8 @@ public class Order {
     @JoinColumn(name="order_status_id")
     private OrderStatus orderStatus;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "order")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "ordered")
+    @JsonIgnore
     private List<OrderItems> orderItemsList;
 
 }

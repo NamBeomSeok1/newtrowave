@@ -10,12 +10,13 @@ import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.ManyToOne;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class OrderApiRequestDto {
+public class OrderedApiRequestDto {
 
     private Long orderId;
 
@@ -23,8 +24,9 @@ public class OrderApiRequestDto {
 
     private LocalDateTime createdAt;
 
-    private Long userId;
+    private Long Id;
 
-    private Long orderStatusOrderStatusId;
+    private Long OrderStatusId;
+
 
 }
