@@ -6,5 +6,4 @@ import java.util.Optional;
 
 public interface OrderedRepository extends JpaRepository<Ordered,Long> {
 
-    Optional<Ordered> findById(Long id);
 }

@@ -1,10 +1,8 @@
 package com.kostars.newtroshop.web.dto.response;
 
 import com.kostars.newtroshop.domain.order.OrderItems;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.kostars.newtroshop.domain.user.User;
+import lombok.*;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -13,6 +11,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@ToString(exclude = {"orderItemsList"})
 public class OrderedApiResponseDto {
 
 
@@ -27,6 +26,8 @@ public class OrderedApiResponseDto {
     private Long orderStatusId;
 
     private List<OrderItems> orderItemsList;
+
+    private User user;
 
 }
 

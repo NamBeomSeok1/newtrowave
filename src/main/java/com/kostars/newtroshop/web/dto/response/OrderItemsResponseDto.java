@@ -1,11 +1,16 @@
 package com.kostars.newtroshop.web.dto.response;
 
 import com.kostars.newtroshop.domain.product.Product;
+import lombok.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
-
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+@ToString(exclude = {"products"})
 public class OrderItemsResponseDto {
 
     private Long orderItemsId;
@@ -26,6 +31,6 @@ public class OrderItemsResponseDto {
 
     private Long orderItemsStatusId;
 
-    private List<Product> products;
+    private Product products;
 
 }

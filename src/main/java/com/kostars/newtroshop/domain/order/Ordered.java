@@ -1,5 +1,7 @@
 package com.kostars.newtroshop.domain.order;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.kostars.newtroshop.domain.user.User;
 import lombok.*;
 import lombok.experimental.Accessors;
@@ -41,8 +43,8 @@ public class Ordered {
     @JoinColumn(name="order_status_id")
     private OrderStatus orderStatus;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "ordered")
-    @JsonIgnore
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "ordered",cascade = CascadeType.ALL)
+    @JsonManagedReference
     private List<OrderItems> orderItemsList;
 
 }

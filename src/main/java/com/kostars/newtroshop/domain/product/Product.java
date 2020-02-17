@@ -49,7 +49,7 @@ public class Product {
     @JsonIgnore
     private List<Category> categories;
 
-    @OneToMany(fetch = FetchType.LAZY,mappedBy = "product")
+    @OneToMany(fetch = FetchType.LAZY,mappedBy = "product",cascade = CascadeType.ALL)
     @JsonIgnore
     private List<OrderItems> orderItemsList;
 

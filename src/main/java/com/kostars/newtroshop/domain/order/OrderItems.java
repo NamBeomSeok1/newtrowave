@@ -1,5 +1,6 @@
 package com.kostars.newtroshop.domain.order;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.kostars.newtroshop.domain.product.Product;
 import lombok.*;
 import lombok.experimental.Accessors;
@@ -8,6 +9,7 @@ import net.minidev.json.annotate.JsonIgnore;
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -36,17 +38,17 @@ public class OrderItems {
 
     @ManyToOne
     @JoinColumn(name = "order_id")
-    @JsonIgnore
+    @JsonBackReference
     private Ordered ordered;
 
     @ManyToOne
     @JoinColumn(name ="order_items_status_id")
-    @JsonIgnore
+    @JsonBackReference
     private OrderItemsStatus orderItemsStatus;
 
     @ManyToOne
     @JoinColumn(name="product_id")
-    @JsonIgnore
+    @JsonBackReference
     private Product product;
 
 

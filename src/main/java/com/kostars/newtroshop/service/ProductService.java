@@ -76,6 +76,7 @@ public class ProductService implements CrudInterface<ProductRequestDto, ProductR
                 .productContent(product.getProductContent())
                 .createdAt(product.getCreatedAt())
                 .productStock(product.getProductStock())
+                .categories(product.getCategories())
                 .build();
 
         return Header.OK(body);

@@ -51,7 +51,7 @@ public class User {
 
     private LocalDateTime updatedAt;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user",cascade = CascadeType.ALL)
     @JsonIgnore
     private List<Ordered> orderedList = new ArrayList<Ordered>();
 

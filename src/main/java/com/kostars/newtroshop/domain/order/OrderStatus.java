@@ -21,7 +21,7 @@ import java.util.List;
 
         private String orderDescription;//주문완료,주문취소,배송중
 
-        @OneToMany(fetch = FetchType.LAZY, mappedBy = "orderStatus")
+        @OneToMany(fetch = FetchType.LAZY, mappedBy = "orderStatus",cascade = CascadeType.ALL)
         private List<Ordered> orderList;
 
 }
